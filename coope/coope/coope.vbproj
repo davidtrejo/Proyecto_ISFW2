@@ -112,6 +112,7 @@
     <Content Include="admin\listapersonas.aspx" />
     <Content Include="admin\manatenimientoproductos.aspx" />
     <Content Include="admin\Productos.aspx" />
+    <Content Include="admin\Reporte.aspx" />
     <Content Include="bootstrap\css\bootstrap.css" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.js" />
@@ -711,6 +712,13 @@
     </Compile>
     <Compile Include="admin\Productos.aspx.vb">
       <DependentUpon>Productos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="admin\Reporte.aspx.designer.vb">
+      <DependentUpon>Reporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Reporte.aspx.vb">
+      <DependentUpon>Reporte.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="clases\clahorro.vb" />
