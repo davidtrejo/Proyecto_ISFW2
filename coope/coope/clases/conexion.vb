@@ -7,7 +7,10 @@ Public Class conexion
 
     Public Sub Conectar(msjError As String)
         conn = New SqlConnection
-        conn.ConnectionString = "Data Source=DESKTOP-RG9QC1P; Initial Catalog=coope; user=cooperativa; password=12345; Integrated Security=SSPI;"
+        ' conn.ConnectionString = "Data Source=DESKTOP-RG9QC1P; Initial Catalog=coope; user=cooperativa; password=12345; Integrated Security=SSPI;"
+
+        conn.ConnectionString = "Data Source=sql5031.smarterasp.net; Initial Catalog=DB_A2BDCF_coopeprueba; user=DB_A2BDCF_coopeprueba_admin; password=Abc12345; Integrated Security=SSPI;"
+
         conn.Open()
 
     End Sub
