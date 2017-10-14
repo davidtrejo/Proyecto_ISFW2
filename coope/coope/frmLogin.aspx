@@ -80,7 +80,7 @@
         <br />
 
     <div class="wrap">
-     <span class="titular1 block linea1bottom">ACSA POLO</span>
+     <span class="titular1 block linea1bottom">ACSA POLO.</span>
    <br />
        
 			 
