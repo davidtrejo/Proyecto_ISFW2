@@ -102,7 +102,7 @@
                                     runat="server" ></asp:TextBox>
 								<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                     ControlToValidate="txtUsuario" CssClass="field-validation-error" 
-                                    ErrorMessage="El nombre de usuario es requrido." ForeColor="#FF3300" />
+                                    ErrorMessage="El nombre de usuario es requrido.." ForeColor="#FF3300" />
 							</div>
 							<div class="control-group">
                                 <asp:TextBox ID="txtPassword"  placeholder="Contrase&ntilde;a"   class="big" 
