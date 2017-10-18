@@ -69,10 +69,10 @@
         <asp:GridView Width ="100%" ID="grid" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
-                <asp:BoundField DataField="idahorro" HeaderText="id">
+                <asp:BoundField DataField="idahorro" HeaderText="Numero Cuenta">
                 <ItemStyle HorizontalAlign="Center" />
                 </asp:BoundField>
-                <asp:BoundField DataField="nombre" HeaderText="Socio">
+                <asp:BoundField DataField="nombreCompleto" HeaderText="Socio">
                 <ItemStyle HorizontalAlign="Center" />
                 </asp:BoundField>
                 <asp:BoundField DataField="nombreproducto" HeaderText="Producto">

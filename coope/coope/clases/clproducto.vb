@@ -6,6 +6,31 @@ Public Class clproducto
     Dim conn As New conexion
     Dim c = ","
 
+#Region "Declaraciones"
+
+    Private _idProducto As String
+    Public Property IdProducto() As String
+        Get
+            Return _idProducto
+        End Get
+        Set(ByVal value As String)
+            _idProducto = value
+        End Set
+    End Property
+
+    Private _nombre As String
+    Public Property Nombre() As String
+        Get
+            Return _nombre
+        End Get
+        Set(ByVal value As String)
+            _nombre = value
+        End Set
+    End Property
+#End Region
+
+
+
     Public Function ObtenerListaProductos(msjError As String) As DataTable
 
         strSql = " select * from productos"
