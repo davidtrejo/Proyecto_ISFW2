@@ -108,6 +108,7 @@
     <Content Include="admin\ahorros.aspx" />
     <Content Include="admin\calcularinteres.aspx" />
     <Content Include="admin\Capitalizar.aspx" />
+    <Content Include="admin\CerrarCuenta.aspx" />
     <Content Include="admin\gestionar.aspx" />
     <Content Include="admin\inicio.aspx" />
     <Content Include="admin\ListadoSocios.aspx" />
@@ -679,6 +680,13 @@
     </Compile>
     <Compile Include="admin\Capitalizar.aspx.vb">
       <DependentUpon>Capitalizar.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="admin\CerrarCuenta.aspx.designer.vb">
+      <DependentUpon>CerrarCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CerrarCuenta.aspx.vb">
+      <DependentUpon>CerrarCuenta.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="admin\gestionar.aspx.designer.vb">
