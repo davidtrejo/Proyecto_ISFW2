@@ -3,7 +3,6 @@
 
     Dim ahorro As New clahorro
 
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         If Not Page.IsPostBack Then
@@ -11,6 +10,9 @@
             llenarcombos()
             Me.Calendar1.Visible = False
         End If
+
+
+
 
 
 
@@ -45,7 +47,7 @@
         '' combo ahorrantes
         Dim persona As New clpersona
         Me.cmdahorrante.DataSource = persona.ObtenerListaPersonas(msjError)
-        Me.cmdahorrante.DataTextField = "nombre"
+        Me.cmdahorrante.DataTextField = "nombreCompleto"
         Me.cmdahorrante.DataValueField = "idpersona"
         Me.cmdahorrante.DataBind()
 

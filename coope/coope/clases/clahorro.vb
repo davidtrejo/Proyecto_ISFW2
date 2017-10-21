@@ -1,5 +1,42 @@
 ﻿Public Class clahorro
 
+#Region "Declaraciones"
+
+    Private _idAhorro As Integer
+    Public Property IdAhorro() As Integer
+        Get
+            Return _idAhorro
+        End Get
+        Set(ByVal value As Integer)
+            _idAhorro = value
+        End Set
+    End Property
+
+    Private _idProducto As Integer
+    Public Property IdProducto() As Integer
+        Get
+            Return _idProducto
+        End Get
+        Set(ByVal value As Integer)
+            _idProducto = value
+        End Set
+    End Property
+
+    Private _IdPersona As Integer
+    Public Property IdPErsona() As Integer
+        Get
+            Return _IdPersona
+        End Get
+        Set(ByVal value As Integer)
+            _IdPersona = value
+        End Set
+    End Property
+
+
+
+#End Region
+
+
     Dim strSql As String = ""
     Dim conn As New conexion
     Dim c = ","
@@ -119,7 +156,7 @@
 
 
         Try
-            strSql = " Insert into ahorrosPersona (idproducto,idpersona,fechainicio) values ( "
+            strSql = " Insert into ahorrosPersona (idproducto,idpersona) values ( "
             strSql &= tipoproducto & c
             strSql &= idpersona & c
             strSql &= "'" & fechainicio & "' )"

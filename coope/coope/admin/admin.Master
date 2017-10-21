@@ -135,8 +135,8 @@
 
                 </li>
                 <li><a href="ahorros.aspx">Ahorros</a></li>
-                <li><a href="listapersonas.aspx">Personas</a></li>
-                  <li><a href="gestionar.aspx">Gestionar</a></li>
+                <li><a href="listapersonas.aspx">Asociados</a></li>
+                  <li><a href="gestionar.aspx">Operaciones</a></li>
                 <li class="icon">
                     <a href="javascript:void(0);" style="font-size: 15px;" onclick="myFunction()">☰</a>
                 </li>
@@ -180,33 +180,37 @@
                         </li>
                         <!-- termina ejemplo li -->
 
-                        <li class='has-sub comision order' style="width: 160px;">
-                            <a href='ahorros.aspx' class="pr"><span>Ahorros</span></a>
-                            <ul class="dropdown-menu ">
-                                <li><a href="ahorros.aspx" >Cuentas de Ahorro</a></li>
-                                <li><a href="abonos.aspx?" >Ingresar Abono</a></li>
-
-                            </ul>
-                        </li>
+                       
 
                         <li class='has-sub comision order' style="width: 160px;">
-                            <a href='listapersonas.aspx' class="pr"><span>Personas</span></a>
-
+                            <a href='listapersonas.aspx' class="pr"><span>Socios</span> </a> 
                         </li>
 
                           <li class='has-sub comision order' style="width: 160px;">
-                              <a href="gestionar.aspx" class="pr"><span>Gestionar</span> </a>
+                              <a href="gestionar.aspx" class="pr"><span>Operaciones</span> </a>
                                <ul class="dropdown-menu ">
-                                <li><a href="calcularinteres.aspx" >Gesti&oacute;n de Intereses</a></li>
-                                <li><a href="capitalizar.aspx?" >Capitalizar</a></li>
-
+                                <li><a href="ahorros.aspx" >Agregar Cuenta</a></li>
+                                <li><a href="abonos.aspx?">Mov. Manuales</a></li>                                              
+                                <li><a href="calcularinteres.aspx" >Cierre</a></li>
+                                <li><a href="#" >Abonos de Planilla</a></li>
+                                <li><a href="#" >Reproceso</a></li>
+                                <li><a href="#" >Renovaciones</a></li>
+                                <li><a href="#" >Retiros Masivos</a></li>
                             </ul>
 
                           </li>
+                        
+                        <li class='has-sub comision order' style="width: 160px;">
+                            <a href='#' class="pr"><span>Listados</span> </a> 
+                            <ul class="dropdown-menu ">
+                                <li><a href="#" >Socios</a></li>
+                                <li><a href="#" >Cuentas</a></li>
+                                <li><a href="#" >Mov. de Cuenta</a></li>  
+                            </ul> 
+                        </li>
 
-                        <!-- <li class='has-sub comision order' style="width: 160px;">
-                                 <a href='frmCerrarSesion.aspx' class="pr"><span>Cerrar Sesion</span></a>                                
-                               </li>-->
+
+                      
                     </ul>
                     <!--Termina el menu -->
                 </div>

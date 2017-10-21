@@ -11,12 +11,12 @@
 
         If msjError = "" Then
 
-            If tabla.Rows.Count > 0 Then
-                Me.gridPersonas.DataSource = tabla
-                Me.gridPersonas.DataBind()
-            Else
-                Me.gridPersonas.Visible = False
-            End If
+            'If tabla.Rows.Count > 0 Then
+            '    Me.gridPersonas.DataSource = tabla
+            '    Me.gridPersonas.DataBind()
+            'Else
+            '    Me.gridPersonas.Visible = False
+            'End If
 
         Else
 

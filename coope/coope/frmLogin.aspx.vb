@@ -14,7 +14,7 @@ Public Class frmLogin
 
         If Page.IsPostBack = False Then
             '    Dim cookie As HttpCookie = Request.Cookies("CookieInspAutos.ACSA")
-
+            ''wendy 
             '    'si existe la cookie entonces la leemos .
             '    If Not cookie Is Nothing Then
             '        Dim Usuario As String = Utility.Generic.Decrypt(cookie("Nombre"), "H0k@g30809")
