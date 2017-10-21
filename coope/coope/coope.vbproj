@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -115,6 +116,7 @@
     <Content Include="admin\listapersonas.aspx" />
     <Content Include="admin\manatenimientoproductos.aspx" />
     <Content Include="admin\Productos.aspx" />
+    <Content Include="admin\Renovaciondeposito.aspx" />
     <Content Include="admin\Reporte.aspx" />
     <Content Include="bootstrap\css\bootstrap.css" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
@@ -729,6 +731,13 @@
     </Compile>
     <Compile Include="admin\Productos.aspx.vb">
       <DependentUpon>Productos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="admin\Renovaciondeposito.aspx.designer.vb">
+      <DependentUpon>Renovaciondeposito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Renovaciondeposito.aspx.vb">
+      <DependentUpon>Renovaciondeposito.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="admin\Reporte.aspx.designer.vb">
