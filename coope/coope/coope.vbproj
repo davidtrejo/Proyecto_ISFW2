@@ -109,6 +109,7 @@
     <Content Include="admin\Capitalizar.aspx" />
     <Content Include="admin\gestionar.aspx" />
     <Content Include="admin\inicio.aspx" />
+    <Content Include="admin\ListadoSocios.aspx" />
     <Content Include="admin\listapersonas.aspx" />
     <Content Include="admin\manatenimientoproductos.aspx" />
     <Content Include="admin\Productos.aspx" />
@@ -689,6 +690,13 @@
     </Compile>
     <Compile Include="admin\inicio.aspx.vb">
       <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="admin\ListadoSocios.aspx.designer.vb">
+      <DependentUpon>ListadoSocios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ListadoSocios.aspx.vb">
+      <DependentUpon>ListadoSocios.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="admin\listapersonas.aspx.designer.vb">
