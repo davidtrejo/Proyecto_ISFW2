@@ -35,7 +35,10 @@
 
     Protected Sub grid_DataBinding(sender As Object, e As EventArgs) Handles grid.DataBinding
         Dim msjError As String = ""
+
         Me.grid.DataSource = ahorro.ObtenerAhorrosMovimientos(Usuario, Me.cmbProducto.SelectedValue, msjError)
+
+
 
     End Sub
 

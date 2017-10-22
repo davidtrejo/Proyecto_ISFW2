@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div id="main-header" class="page-header">
-      <span class="titular1 block linea1bottom"> <asp:Label runat="server" ID="lbltitulo" Text ="Cuentas de Ahorros"></asp:Label><br></span>
+      <span class="titular1 block linea1bottom"> <asp:Label runat="server" ID="lbltitulo" Text ="Agregar Cuenta de Ahorro"></asp:Label><br></span>
     </div>  
     
     <div id="main-content">       
