@@ -645,6 +645,62 @@
 
     End Sub
 
+    Public Sub Provisionar1(ByRef Msj As String, fechaProvision As Date, Optional IdProducto As Integer = 0, Optional idSocio As Integer = 0, Optional IdAhorro As Integer = 0)
+
+        ''Obtener la UltimaFechaPrivision
+        Dim MaxFechaProvision As Date = obtenerUltimaFechaProvision(Msj)
+        Dim DiasProvision As Integer = DateDiff(DateInterval.Day, uFechaProvAhorro, fechaProvision)
+
+        For i As Integer = 0 To DiasProvision
+
+
+            '' Obtengo todos los ahorros que voy a provisionar
+            '' Primero Correr proceso sobre cuentas que depositen el interes en otras cuentas
+            Dim tblAhorro As DataTable
+
+            strSql = " select a.idahorro  from ahorrosPersona  as a inner join productos  as p on p.idproducto = a.idproducto "
+            strSql &= " where p.idtipoproducto <> 1 and " '' idtipoproducto son aportaciones
+            strSql &= " idahorro = (select top 1 idahorroDeposito  from AhorroHistorico as b where a.idahorro = b.idahorro order by IdHistorico desc )"
+
+            tblAhorro = conn.ObtenerTabla(strSql, Msj)
+
+
+            For Each row As DataRow In tblAhorro.Rows
+
+
+                _idAhorro = row("IdAhorro")
+                leerAhorroPersona(_idAhorro, Msj)
+
+
+                Dim fecha As Date
+
+                Dim ValorProvision As Double = CalcularProvision(Msj, fecha, _idAhorro)
+
+                If ValorProvision <> 0 Then
+                    GuardarProvision(Msj, fecha, _idAhorro, ValorProvision)
+                End If
+
+                If fecha.Day = 28 Then
+                    ''Hay que capitalizar la cuenta
+                End If
+
+                fecha = DateAdd("d", 1, fecha)
+
+
+
+
+
+
+            Next
+
+
+
+
+        Next
+
+
+
+    End Sub
 
 
     Public Sub provisionar(ByRef Msj As String, fechaProvision As Date, Optional IdProducto As Integer = 0, Optional idSocio As Integer = 0, Optional IdAhorro As Integer = 0)
