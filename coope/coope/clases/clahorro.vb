@@ -651,7 +651,12 @@
         Dim MaxFechaProvision As Date = obtenerUltimaFechaProvision(Msj)
         Dim DiasProvision As Integer = DateDiff(DateInterval.Day, uFechaProvAhorro, fechaProvision)
 
+        Dim fecha As Date = MaxFechaProvision ''  fecha que ire recorriendo
+
+
+
         For i As Integer = 0 To DiasProvision
+
 
 
             '' Obtengo todos los ahorros que voy a provisionar
@@ -672,7 +677,6 @@
                 leerAhorroPersona(_idAhorro, Msj)
 
 
-                Dim fecha As Date
 
                 Dim ValorProvision As Double = CalcularProvision(Msj, fecha, _idAhorro)
 
