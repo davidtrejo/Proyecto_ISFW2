@@ -3,13 +3,18 @@
 
 Public Class conexion
 
+    Public Sub New()
+        Dim msjError As String = ""
+        Conectar(msjError)
+    End Sub
+
     Public conn As SqlConnection
 
     Public Sub Conectar(msjError As String)
         conn = New SqlConnection
-        ' conn.ConnectionString = "Data Source=DESKTOP-RG9QC1P; Initial Catalog=coope; user=cooperativa; password=12345; Integrated Security=SSPI;"
+        conn.ConnectionString = "Data Source=DESKTOP-RG9QC1P; Initial Catalog=cooperativa1; user=cooperativa; password=12345; Integrated Security=SSPI;"
 
-        conn.ConnectionString = "Data Source=sql5031.smarterasp.net; Initial Catalog=DB_A2BDCF_coopeprueba; user=DB_A2BDCF_coopeprueba_admin; password=Abc12345; persist security info=False;"
+        'conn.ConnectionString = "Data Source=sql5031.smarterasp.net; Initial Catalog=DB_A2BDCF_coopeprueba; user=DB_A2BDCF_coopeprueba_admin; password=Abc12345; persist security info=False;"
 
         conn.Open()
 
@@ -17,7 +22,6 @@ Public Class conexion
 
     Public Function ObtenerTabla(strCadena As String, ByRef msjError As String) As DataTable
 
-        Conectar(msjError)
 
 
         Dim da As SqlDataAdapter
@@ -41,7 +45,6 @@ Public Class conexion
 
     Public Sub EjecutarSql(strCadena As String, ByRef msjError As String)
 
-        Conectar(msjError)
 
 
         Dim cmd As New SqlCommand

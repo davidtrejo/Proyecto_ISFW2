@@ -3,6 +3,7 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         '   Me.Calendar1.Visible = False
+        'txtFechaHasta.Date = "30/01/2017"
     End Sub
 
     'Protected Sub ImageButton1_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton1.Click
@@ -20,7 +21,7 @@
 
         Dim msj As String = ""
 
-        ahorro.provisionar(msj, txtFechaHasta.Date)
+        ahorro.provisionar(msj, txtFechaHasta.Value)
 
 
 

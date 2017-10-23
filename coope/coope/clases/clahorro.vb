@@ -263,6 +263,7 @@
 #End Region
 
 
+
     Dim strSql As String = ""
     Dim conn As New conexion
     Dim c = ","
@@ -487,15 +488,22 @@
 
         Dim UFechaProvision As Date
 
-        strSql = " select max(FechaCapitalizacion) as FechaCapitalizacion from [dbo].[ProvisionInteres] as a "
-        strSql &= " inner join capitalizaciones as b on a.idcapitalizacion = b.idcapitalizacion"
+        strSql = " select max(fechaprovision) as fechaprovision from [dbo].[ProvisionInteres] as a "
+
+
+        Dim condicion As String = ""
+        If idahorro <> 0 Then
+            condicion = " Where idahorro =  " & idahorro
+        End If
+
+        strSql &= condicion
 
         Try
             Dim tabla As DataTable
             tabla = conn.ObtenerTabla(strSql, msj)
 
-            If Not IsDBNull(tabla.Rows(0).Item("FechaCapitalizacion")) Then
-                UFechaProvision = tabla.Rows(0).Item("FechaCapitalizacion")
+            If Not IsDBNull(tabla.Rows(0).Item("fechaprovision")) Then
+                UFechaProvision = tabla.Rows(0).Item("fechaprovision")
             End If
 
 
@@ -535,16 +543,32 @@
             Dim Numdias As Integer  '' Dias a provisionar
 
             Numdias = DateDiff(DateInterval.Day, UFechaProvision, fechaProvision)
-            Dim contadorDias As Integer = 0
-            Dim fecha As Date = UFechaProvision  '' fecha a recorrer
 
-            For i As Integer = 0 To Numdias
+            If Numdias > 0 Then
 
-                Dim ValorProvision As Double = CalcularProvision(Msj, fecha, _idAhorro)
-                GuardarProvision(Msj, fecha, _idAhorro, ValorProvision)
-                fecha = DateAdd(DateInterval.Day, 1, fecha)
-            Next
+                If UFechaProvision <> fechaProvision Then
+                    '' Para evitar que repita el insert del mismo dia dos veces
+                    Dim contadorDias As Integer = 0
+                    Dim fecha As DateTime = UFechaProvision  '' fecha a recorrer
 
+                    For i As Integer = 0 To Numdias
+
+                        Dim ValorProvision As Double = CalcularProvision(Msj, fecha, _idAhorro)
+
+                        If ValorProvision <> 0 Then
+                            GuardarProvision(Msj, fecha, _idAhorro, ValorProvision)
+                        End If
+
+                        If fecha.Day = 28 Then
+                            ''Hay que capitalizar la cuenta
+                        End If
+
+                        fecha = DateAdd("d", 1, fecha)
+
+                    Next
+                End If
+
+            End If
         Next
 
 
@@ -552,19 +576,21 @@
     End Sub
 
 
-    Private Function CalcularProvision(ByRef msj As String, Fecha As Date, idahorro As Integer) As Double
+    Private Function CalcularProvision(ByRef msj As String, Fecha As DateTime, idahorro As Integer) As Double
 
         Dim valorProvision As Double
         Dim MontoAhorrado As Double
 
         Try
             strSql = " select isnull( sum(valorMovimiento),0) as MontoAhorrado from [dbo].[ahorrosPersonaMovimientos] "
-            strSql &= " where fechaMovimiento <= '" & (Fecha.Date.ToShortDateString) & "'"
-
+            strSql &= " where idahorro = " & idahorro & " and fechaMovimiento <= " & sef2(Fecha)
             MontoAhorrado = conn.ObtenerTabla(strSql, msj).Rows(0).Item("MontoAhorrado")
-            _tasaInteres = obtenertasa(msj, idahorro, Fecha)
 
-            valorProvision = System.Math.Round(MontoAhorrado * _tasaInteres / 365, 2)
+
+            If MontoAhorrado <> 0 Then
+                _tasaInteres = obtenertasa(msj, idahorro, Fecha)
+                valorProvision = System.Math.Round(MontoAhorrado * _tasaInteres / 365, 2)
+            End If
 
         Catch ex As Exception
 
@@ -578,7 +604,7 @@
 
         Try
             strSql = "  select top 1 tasa from tasasInteres where idproducto = (select idproducto from ahorrosPersona where idahorro = " & idahorro & " )"
-            strSql &= " And fechaDesde <='" & fecha.ToShortDateString & "'"
+            strSql &= " And fechaDesde <=" & sef2(fecha)
             strSql &= "  order by idtasa desc"
 
             Return conn.ObtenerTabla(strSql, msj).Rows(0).Item("tasa")
@@ -592,8 +618,8 @@
 
         Try
 
-            strSql = " insert into  [dbo].[ProvisionInteres] (fechaprovision,idahorro,valor) values ('"
-            strSql &= fechaProvision.ToShortDateString & "'," & idahorro & "," & valor & ")"
+            strSql = " insert into  [dbo].[ProvisionInteres] (fechaprovision,idahorro,valor) values ("
+            strSql &= sef2(fechaProvision) & "," & idahorro & "," & valor & ")"
 
             conn.EjecutarSql(strSql, msj)
 
@@ -608,8 +634,9 @@
         Try
             strSql = "select fechaInicio from AhorroHistorico where idahorro = " & idahorro
 
-            Return conn.ObtenerTabla(strSql, msj).Rows(0).Item("fechaInicio")
+            Dim fecha As Date = CDate(conn.ObtenerTabla(strSql, msj).Rows(0).Item("fechaInicio"))
 
+            Return fecha
         Catch ex As Exception
             msj = ex.Message
             Return Date.MinValue
