@@ -77,7 +77,7 @@
             If QuotationMark = True Then
                 ''/*Expression = "'" + Convert.ToString(Expression) + "'";*/
                 Expression = Convert.ToString(Expression)
-                Expression = Convert.ToString(Scm(Expression))
+                ' Expression = Convert.ToString(Scm(Expression))
             End If
             Return Expression
         Catch ex As Exception
